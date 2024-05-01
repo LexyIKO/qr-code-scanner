@@ -1,0 +1,35 @@
+@import "../../Colors"
+
+.result
+  display: flex
+  width: 60vw
+  min-height: 200px
+  border: 2px solid $primary
+  background-color: $background
+  border-radius: 5px
+  margin: 40px auto 20px auto
+
+
+  p
+    padding: 5px 10px
+    font-size: 24px
+    color: $text
+
+@media (max-width: 850px)
+  .result
+    width: 70vw
+
+    p
+      font-size: 20px
+
+@media (max-width: 650px)
+  .result
+    width: 80vw
+
+    p
+      font-size: 16px
+
+@media (max-width: 370px)
+  .result
+    p
+      font-size: 12px

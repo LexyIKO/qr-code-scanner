@@ -1,0 +1,47 @@
+@import '../Colors.sass'
+
+.Header
+  display: flex
+  height: 15vh
+  width: 100%
+  background-color: $background
+  align-items: center
+  justify-content: left
+
+  h1
+    color: $text
+    margin-left: 2vw
+    font-size: 48px
+    font-size-adjust: inherit
+    min-font-size: 24px
+
+  img
+    margin-left: 5vw
+    width: 70px
+    height: 70px
+
+  span
+    color: $primary
+
+@media (max-width: 650px)
+  .Header
+    height: 10vh
+
+    h1
+      font-size: 38px
+
+    img
+      width: 50px
+      height: 50px
+
+@media (max-width: 350px)
+  .Header
+    height: 8vh
+
+    h1
+      font-size: 30px
+
+    img
+      width: 40px
+      height: 40px
+
