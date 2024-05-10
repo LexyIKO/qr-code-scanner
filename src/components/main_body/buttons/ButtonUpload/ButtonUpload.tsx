@@ -1,5 +1,4 @@
 import React from "react";
-import './ButtonUpload.sass'
 
 interface MyProps {
     onUploaded: (file: File) => void
@@ -19,7 +18,7 @@ function ButtonUpload (props: MyProps) {
 
     return (
         <div className="upload-button">
-            <input type="file" name='file' onInput={handleFileUploaded} className='upload-input'/>
+            <input type="file" name='file' onInput={handleFileUploaded} className='upload-input' accept="image/jpeg, image/jpg, image/png"/>
             <label htmlFor="file" className="file-label">Загрузить</label>
         </div>
     )

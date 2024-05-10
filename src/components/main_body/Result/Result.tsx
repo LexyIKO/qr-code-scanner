@@ -1,5 +1,4 @@
 import React from "react";
-import './Result.sass'
 
 interface MyProps {
     scanRes: string
@@ -7,7 +6,6 @@ interface MyProps {
 
 
 function Result (props: MyProps) {
-
     let linkRegExp = /^((ftp|http|https):\/\/)?(www\.)?([A-Za-zА-Яа-я0-9]{1}[A-Za-zА-Яа-я0-9\-]*\.?)*\.{1}[A-Za-zА-Яа-я0-9-]{2,8}(\/([\w#!:.?+=&%@!\-\/])*)?/;
 
     const isDefaultValue = () => {
@@ -37,13 +35,14 @@ function Result (props: MyProps) {
                         : linkRegExp.test(props.scanRes)
                             ? <a href={props.scanRes}>{props.scanRes}</a>
                             : isJsonFormat()
-                                ? (
-                                    <>
-                                        <span className="add-opacity">QR-код содержит в себе json-объект, вы можете скопировать результат и воспользоваться сервисом, который отобразит его в удобном виде</span>
-                                        <br/><br/>
-                                        <span>{jsonData()}</span>
-                                    </>
-                                )
+                                ?
+                                    (
+                                        <>
+                                            <span className="add-opacity">QR-код содержит в себе json-объект, вы можете скопировать результат и воспользоваться сервисом, который отобразит его в удобном виде</span>
+                                            <br/><br/>
+                                            <span>{jsonData()}</span>
+                                        </>
+                                    )
                                 : props.scanRes
                 }
             </p>

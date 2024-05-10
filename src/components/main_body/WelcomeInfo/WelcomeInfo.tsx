@@ -1,10 +1,11 @@
 import React from "react";
-import './WelcomeInfo.sass';
 
-
-function WelcomeInfo () {
+interface WelcomeInfoProps {
+    isMobile: boolean
+}
+function WelcomeInfo (props: WelcomeInfoProps) {
     return (
-        <div className="welcome-info">
+        <div className={props.isMobile ? "welcome-info" : "welcome-info welcome-info-desktop"}>
             <h1>Онлайн сканнер QR-кодов</h1>
             <p>
                 Наш сервис позволит вам отсканировать QR-код

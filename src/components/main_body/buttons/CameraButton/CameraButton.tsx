@@ -1,5 +1,4 @@
 import React from "react";
-import './CameraButton.sass'
 
 interface MyProps {
     buttonClicked: () => void

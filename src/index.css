@@ -1,3 +1,11 @@
+@import "./styles/ButtonUpload.css";
+@import "./styles/CameraButton.css";
+@import "./styles/Header.css";
+@import "./styles/MainContent.css";
+@import "./styles/ModalCamera.css";
+@import "./styles/Result.css";
+@import "./styles/WelcomeInfo.css";
+
 * {
   margin: 0;
   padding: 0;

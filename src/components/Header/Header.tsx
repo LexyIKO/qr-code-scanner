@@ -1,5 +1,4 @@
 import React from "react";
-import './Header.sass'
 import logo from '../../images/logo.svg'
 
 function Header () {
