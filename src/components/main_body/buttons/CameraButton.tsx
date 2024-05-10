@@ -5,12 +5,9 @@ interface MyProps {
     buttonClicked: () => void
 }
 function CameraButton (props: MyProps) {
-    const buttonPressed = () => [
-        props.buttonClicked()
-    ]
 
     return (
-        <div className="nav-button" onClick={buttonPressed}>
+        <div className="nav-button" onClick={()=>props.buttonClicked()}>
             <p>Использовать камеру</p>
         </div>
     )

@@ -1,11 +1,10 @@
-import React, {useRef, useState} from "react";
+import React, {useEffect, useRef, useState} from "react";
 import './ModalCamera.sass'
 
 import IconCloseCircle from "../../../icons/Cancel";
 import IconCircle from "../../../icons/Circle";
 import IconReset from "../../../icons/Reset";
 import IconCheckCircle from "../../../icons/Сheck";
-import {type} from "node:os";
 
 interface MyProps {
     isActive: boolean,
@@ -21,7 +20,7 @@ function ModalCamera (props: MyProps) {
 
     const startCamera = async () => {
         try {
-            const stream = await navigator.mediaDevices.getUserMedia({ video: true });
+            const stream = await navigator.mediaDevices.getUserMedia({ video: { facingMode: 'environment' } })
             if (videoRef.current) {
                 videoRef.current.srcObject = stream;
                 setIsCameraOn(true);
@@ -81,6 +80,12 @@ function ModalCamera (props: MyProps) {
         }
     }
 
+    useEffect(() => {
+        if(props.isActive){
+            startCamera()
+        }
+    }, [props.isActive]);
+
     return (
         <div className="modal-camera" style={{display: props.isActive ? "flex" : "none"}}>
             <video ref={videoRef} autoPlay muted className="camera"
@@ -91,8 +96,7 @@ function ModalCamera (props: MyProps) {
                     <img src={imageData} alt='#' className='saved-image'/>
                 </div>
                 : null}
-            <p className="button-camera-on" onClick={startCamera}
-               style={{display: (!isCameraOn && !imageData)  ? 'flex' : 'none'}}>Включить камеру</p>
+
             <div className="buttons">
                 <IconCloseCircle onClick={changeActiveStatus} width={50} height={50} color={"white"}/>
                 {imageData ?

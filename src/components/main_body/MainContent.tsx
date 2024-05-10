@@ -26,7 +26,7 @@ const MainContent:React.FC =  () => {
         if (file) {
             const blob = new Blob([file]); // Convert File to Blob
             const imageFileReadResults = await readBarcodesFromImageFile(blob, readerOptions);
-            if(imageFileReadResults[0] !== undefined) {
+            if(imageFileReadResults[0]) {
                 setResult(imageFileReadResults[0].text)
             }
         } else {
